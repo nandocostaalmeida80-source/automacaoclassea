@@ -1138,6 +1138,72 @@ footer a:hover { color: var(--gold-0); }
 }
 .offer-section-stack--single .offer-card.featured::before { display: none; }
 
+/* Installments-first price block (oferta) */
+.price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.price-installments {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: var(--fg-0);
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.price-installments .installments-x {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold-0);
+}
+.price-installments .installments-of {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fg-2);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+.price-installments .installments-currency {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--fg-1);
+}
+.price-installments .installments-value {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--fg-0);
+  letter-spacing: -0.04em;
+}
+.price-installments .installments-asterisk {
+  font-size: 22px;
+  color: var(--gold-1);
+  font-weight: 600;
+  align-self: flex-start;
+  margin-left: -2px;
+}
+.price-cash {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--fg-2);
+}
+.price-cash strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--fg-0);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 480px) {
+  .price-installments .installments-value { font-size: 52px; }
+  .price-installments .installments-x { font-size: 24px; }
+}
+
 /* ==================== Section header ==================== */
 .section-head {
   display: flex;
