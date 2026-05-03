@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ==================== NÃO RASTREÁVEL ====================
+       Bloqueia indexação em todos os mecanismos de pesquisa.
+       Para reforço extra (recomendado), configure também o
+       cabeçalho HTTP X-Robots-Tag: noindex, nofollow no servidor.
+  ===================================================== -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="referrer" content="no-referrer" />
+
+  <title>Inscrição confirmada · Semana da Automação Classe A</title>
+
+  <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/jetbrainsmono-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ==================== PLACEHOLDERS A SUBSTITUIR ====================
+       Antes de publicar, troque os marcadores abaixo:
+
+       [LINK-WHATSAPP]   → URL de convite do grupo (ex.: https://chat.whatsapp.com/AbCdEf123456)
+       [LINK-GCAL-AULA-N]→ URL gerada em https://calendar.google.com/calendar/render?action=TEMPLATE&...
+       [DATA-AULA-N]     → Data da aula  (ex.: 12/05/2026)
+       [DIA-AULA-N]      → Dia da semana (ex.: Segunda-feira)
+       [HORA-AULA-N]     → Horário       (ex.: 20h00 (horário de Brasília))
+
+       Dica: para gerar o link do Google Agenda, use o formato:
+       https://calendar.google.com/calendar/render?action=TEMPLATE
+         &text=Aula+1+-+Semana+da+Automacao+Classe+A
+         &dates=20260512T200000/20260512T220000
+         &details=Link+da+transmissao+sera+enviado+no+grupo+do+WhatsApp.
+         &location=Online
+         &ctz=America/Sao_Paulo
+  ====================================================================== -->
+
+  <style>
+    /* ============ Estilos exclusivos da página de obrigado ============ */
+    .ty-hero {
+      position: relative;
+      padding: 96px 0 64px;
+      text-align: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .ty-hero::before {
+      content: "";
+      position: absolute;
+      inset: -20% 0 0 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212, 162, 76, 0.18), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(31, 138, 91, 0.10), transparent 70%);
+    }
+    .ty-hero .ty-grid {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%);
+    }
+
+    .ty-check {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(44,177,120,0.25), rgba(31,138,91,0.10));
+      border: 1px solid rgba(44,177,120,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 8px rgba(44,177,120,0.06), 0 24px 60px -20px rgba(31,138,91,0.45);
+    }
+    .ty-check svg { color: var(--accent-hi); }
+
+    .ty-hero h1 {
+      font-size: clamp(34px, 4.2vw, 56px);
+      max-width: 22ch;
+      margin: 0 auto 18px;
+    }
+    .ty-hero .lead {
+      margin: 0 auto;
+      text-align: center;
+      max-width: 60ch;
+      font-size: clamp(16px, 1.2vw, 18px);
+    }
+    .ty-hero .meta-row {
+      margin-top: 28px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* ============ Steps ============ */
+    .ty-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 8px;
+    }
+    @media (max-width: 880px) {
+      .ty-steps { grid-template-columns: 1fr; }
+    }
+    .ty-step {
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ty-step::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-1), transparent);
+      opacity: 0.5;
+    }
+    .ty-step .ty-step-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-1);
+    }
+    .ty-step h3 { font-size: 22px; }
+    .ty-step p {
+      font-size: 15px;
+      color: var(--fg-1);
+      line-height: 1.55;
+    }
+    .ty-step .btn { margin-top: auto; }
+
+    /* ============ Agenda das aulas ============ */
+    .ty-agenda {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 880px) {
+      .ty-agenda { grid-template-columns: 1fr; }
+    }
+    .ty-class {
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .ty-class:hover {
+      border-color: var(--gold-2);
+      transform: translateY(-2px);
+    }
+    .ty-class .ty-class-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-1);
+    }
+    .ty-class h4 {
+      font-size: 20px;
+      margin: 0;
+    }
+    .ty-class .ty-class-when {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 16px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--fg-0);
+    }
+    .ty-class .ty-class-when .day {
+      color: var(--fg-2);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .ty-class .ty-class-when .hour {
+      color: var(--gold-0);
+      font-weight: 600;
+    }
+    .ty-class .gcal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      color: var(--fg-0);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      margin-top: auto;
+      justify-content: center;
+    }
+    .ty-class .gcal-link:hover {
+      background: var(--bg-2);
+      border-color: var(--gold-1);
+    }
+
+    /* ============ WhatsApp callout ============ */
+    .ty-whatsapp {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 28px 32px;
+      background: linear-gradient(180deg, rgba(44,177,120,0.08), rgba(31,138,91,0.03));
+      border: 1px solid rgba(44,177,120,0.30);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-card);
+    }
+    @media (max-width: 760px) {
+      .ty-whatsapp {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 18px;
+      }
+      .ty-whatsapp .ty-wa-icon { margin: 0 auto; }
+    }
+    .ty-wa-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #25d366, #128c7e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px -10px rgba(37, 211, 102, 0.5);
+    }
+    .ty-wa-text h3 { font-size: 22px; margin-bottom: 6px; }
+    .ty-wa-text p { color: var(--fg-1); font-size: 15px; }
+    .ty-wa-text .ty-wa-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-hi);
+    }
+    .ty-wa-text .ty-wa-tag .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent-hi);
+      box-shadow: 0 0 0 4px rgba(44,177,120,0.18);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    /* ============ Suporte ============ */
+    .ty-support {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 760px) {
+      .ty-support { grid-template-columns: 1fr; }
+    }
+    .ty-support .card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ty-support .card h4 { font-size: 18px; }
+    .ty-support .card p { font-size: 14px; color: var(--fg-1); }
+    .ty-support .card a {
+      color: var(--gold-0);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      word-break: break-all;
+    }
+    .ty-support .card a:hover { text-decoration: underline; }
+
+    /* ============ Section heads ============ */
+    .ty-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .ty-head h2 { font-size: clamp(28px, 3vw, 40px); }
+    .ty-head p { color: var(--fg-1); max-width: 56ch; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== HERO — CONFIRMAÇÃO ==================== -->
+  <section class="ty-hero">
+    <div class="ty-grid"></div>
+    <div class="container">
+
+      <div class="ty-check" aria-hidden="true">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5 L10 17.5 L19 7.5" />
+        </svg>
+      </div>
+
+      <span class="eyebrow" style="margin-bottom: 14px;">Inscrição confirmada</span>
+
+      <h1>Sua vaga está <span class="gold">garantida</span>. Bem-vindo(a) à Semana da Automação Classe A.</h1>
+
+      <p class="lead">
+        Pagamento confirmado com sucesso. Agora siga os 3 passos abaixo para não perder nenhuma aula
+        ao vivo e aproveitar o treinamento ao máximo.
+      </p>
+
+      <div class="meta-row">
+        <span class="tag"><span class="dot"></span> Acesso liberado</span>
+        <span class="tag">3 aulas ao vivo</span>
+        <span class="tag">Garantia de 7 dias</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== PRÓXIMOS PASSOS ==================== -->
+  <section class="section section-tight">
+    <div class="container">
+
+      <div class="ty-head">
+        <span class="eyebrow">Próximos passos</span>
+        <h2>Faça isso <span class="gold-soft">agora</span> para não perder nada.</h2>
+      </div>
+
+      <div class="ty-steps">
+
+        <div class="ty-step">
+          <div class="ty-step-num">PASSO 01</div>
+          <h3>Entre no grupo do WhatsApp</h3>
+          <p>
+            É no grupo que vamos enviar o link das transmissões, lembretes antes de cada aula
+            e os bônus exclusivos. Não fique de fora.
+          </p>
+          <a href="[LINK-WHATSAPP]" target="_blank" rel="noopener noreferrer"
+             class="btn btn-primary btn-block">
+            Entrar no grupo agora
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 H19" />
+              <path d="M13 6 L19 12 L13 18" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="ty-step">
+          <div class="ty-step-num">PASSO 02</div>
+          <h3>Salve as aulas na sua agenda</h3>
+          <p>
+            Adicione cada aula no Google Agenda em 1 clique. Você recebe lembretes automáticos
+            e garante que nada vai passar batido.
+          </p>
+          <a href="#agenda" class="btn btn-ghost btn-block">
+            Ver programação
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9 L12 15 L18 9" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="ty-step">
+          <div class="ty-step-num">PASSO 03</div>
+          <h3>Confirme seu e-mail</h3>
+          <p>
+            Verifique sua caixa de entrada (e o spam). Você recebeu um e-mail de boas-vindas
+            com todas as informações de acesso. Marque como “não é spam” para garantir.
+          </p>
+          <span class="tag" style="align-self: flex-start;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 7 L12 13 L21 7" />
+            </svg>
+            E-mail de confirmação enviado
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHATSAPP CALLOUT ==================== -->
+  <section class="section section-tight">
+    <div class="container">
+      <div class="ty-whatsapp">
+        <div class="ty-wa-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 32 32" fill="#fff">
+            <path d="M27.2 4.7C24.2 1.7 20.2 0 16 0 7.4 0 .4 7 .4 15.6c0 2.7.7 5.4 2.1 7.7L.3 32l8.9-2.3c2.3 1.2 4.8 1.9 7.4 1.9h.01c8.6 0 15.6-7 15.6-15.6 0-4.2-1.6-8.1-4.6-11.1zM16 28.9c-2.3 0-4.6-.6-6.6-1.8l-.5-.3-4.9 1.3 1.3-4.8-.3-.5c-1.3-2.1-2-4.5-2-6.9 0-7.2 5.9-13.1 13.1-13.1 3.5 0 6.8 1.4 9.3 3.9s3.8 5.8 3.8 9.3c-.1 7.2-6 13-13.2 13zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2-.3.4-1.1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-1-2.4-1.4-3.3-.4-.9-.7-.7-1-.8h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.4 7 6.2 1 .4 1.7.7 2.3.9.97.3 1.86.26 2.55.16.78-.12 2.4-.98 2.74-1.93.34-.95.34-1.76.24-1.93-.1-.16-.36-.26-.76-.46z"/>
+          </svg>
+        </div>
+        <div class="ty-wa-text">
+          <h3>Grupo exclusivo de avisos</h3>
+          <p>
+            Comunidade fechada só para alunos. Lembretes antes de cada aula, links de transmissão,
+            material complementar e tira-dúvidas direto com o time.
+          </p>
+          <span class="ty-wa-tag"><span class="dot"></span> Grupo ativo · entre antes da aula 1</span>
+        </div>
+        <a href="[LINK-WHATSAPP]" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Entrar no grupo
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12 H19" />
+            <path d="M13 6 L19 12 L13 18" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== AGENDA / PROGRAMAÇÃO ==================== -->
+  <section class="section" id="agenda">
+    <div class="container">
+
+      <div class="ty-head">
+        <span class="eyebrow">Programação ao vivo</span>
+        <h2>3 aulas, 3 noites. Salve <span class="gold">na sua agenda</span>.</h2>
+        <p>Clique no botão de cada aula para adicionar automaticamente no Google Agenda com lembrete.</p>
+      </div>
+
+      <div class="ty-agenda">
+
+        <article class="ty-class">
+          <span class="ty-class-tag">AULA 01</span>
+          <h4>Posicionamento e vendas</h4>
+          <div class="ty-class-when">
+            <span class="day">[DIA-AULA-1] · [DATA-AULA-1]</span>
+            <span class="hour">[HORA-AULA-1]</span>
+          </div>
+          <a href="[LINK-GCAL-AULA-1]" target="_blank" rel="noopener noreferrer" class="gcal-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <path d="M3 9 H21" />
+              <path d="M8 3 V7" />
+              <path d="M16 3 V7" />
+              <path d="M12 13 V17" />
+              <path d="M10 15 H14" />
+            </svg>
+            Adicionar ao Google Agenda
+          </a>
+        </article>
+
+        <article class="ty-class">
+          <span class="ty-class-tag">AULA 02</span>
+          <h4>Método e estrutura profissional</h4>
+          <div class="ty-class-when">
+            <span class="day">[DIA-AULA-2] · [DATA-AULA-2]</span>
+            <span class="hour">[HORA-AULA-2]</span>
+          </div>
+          <a href="[LINK-GCAL-AULA-2]" target="_blank" rel="noopener noreferrer" class="gcal-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <path d="M3 9 H21" />
+              <path d="M8 3 V7" />
+              <path d="M16 3 V7" />
+              <path d="M12 13 V17" />
+              <path d="M10 15 H14" />
+            </svg>
+            Adicionar ao Google Agenda
+          </a>
+        </article>
+
+        <article class="ty-class">
+          <span class="ty-class-tag">AULA 03</span>
+          <h4>Aplicação na prática e fechamento</h4>
+          <div class="ty-class-when">
+            <span class="day">[DIA-AULA-3] · [DATA-AULA-3]</span>
+            <span class="hour">[HORA-AULA-3]</span>
+          </div>
+          <a href="[LINK-GCAL-AULA-3]" target="_blank" rel="noopener noreferrer" class="gcal-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <path d="M3 9 H21" />
+              <path d="M8 3 V7" />
+              <path d="M16 3 V7" />
+              <path d="M12 13 V17" />
+              <path d="M10 15 H14" />
+            </svg>
+            Adicionar ao Google Agenda
+          </a>
+        </article>
+
+      </div>
+
+      <div class="section-cta">
+        <a href="[LINK-WHATSAPP]" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+          Entrar no grupo do WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SUPORTE ==================== -->
+  <section class="section section-tight">
+    <div class="container">
+
+      <div class="ty-head">
+        <span class="eyebrow">Suporte</span>
+        <h2>Precisa de ajuda?</h2>
+      </div>
+
+      <div class="ty-support">
+
+        <div class="card">
+          <h4>Não recebeu o e-mail de confirmação?</h4>
+          <p>Verifique a caixa de spam ou promoções. Se ainda não chegou em até 1 hora, fale com a gente:</p>
+          <a href="mailto:contato@automacaoclassea.com.br">contato@automacaoclassea.com.br</a>
+        </div>
+
+        <div class="card">
+          <h4>Dúvidas sobre o pagamento ou acesso?</h4>
+          <p>Atendimento via WhatsApp em horário comercial:</p>
+          <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener noreferrer">wa.me/55XXXXXXXXXXX</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div>
+          Criado e desenvolvido por <strong style="color: var(--fg-0);">AUTOMAÇÃO CLASSE A LTDA</strong> · CNPJ
+          00.000.000/0001-00
+        </div>
+        <div class="row-flex">
+          <a href="/">Voltar à página inicial</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
