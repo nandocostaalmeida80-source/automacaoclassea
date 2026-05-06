@@ -44,14 +44,15 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- ==================== PLACEHOLDERS A SUBSTITUIR ====================
-       Antes de publicar, troque os marcadores abaixo:
+  <!-- ==================== LINKS DE PRODUÇÃO ====================
+       PASSO 01 · Grupo WhatsApp:
+         https://chat.whatsapp.com/DPYnDuxXI8u9tJtqefIDu5
+         (entrada mediante aprovação manual da equipe)
 
-       [LINK-WHATSAPP] → URL de convite do grupo (ex.: https://chat.whatsapp.com/AbCdEf123456)
-
-       Obs.: o link do Google Agenda do PASSO 02 já está pronto (3 de junho de 2026, 20h-22h
-       horário de Brasília). Para mudar data/hora, edite o parâmetro `dates=20260603T200000/20260603T220000`
-       e, se necessário, o parâmetro `ctz=America/Sao_Paulo`.
+       PASSO 02 · Google Agenda:
+         3 de junho de 2026, 20h-22h (horário de Brasília).
+         Para mudar data/hora, edite o parâmetro `dates=20260603T200000/20260603T220000`
+         e, se necessário, o parâmetro `ctz=America/Sao_Paulo`.
   ====================================================================== -->
 
   <style>
@@ -160,6 +161,18 @@
       line-height: 1.55;
     }
     .ty-step .btn { margin-top: auto; }
+    .ty-step-note {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: -4px 0 0;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--fg-3);
+      text-align: center;
+    }
+    .ty-step-note svg { color: var(--fg-2); flex-shrink: 0; }
 
     /* ============ Suporte ============ */
     .ty-support {
@@ -250,7 +263,7 @@
             É no grupo que vamos enviar o link das transmissões, lembretes antes de cada aula
             e os bônus exclusivos. Não fique de fora.
           </p>
-          <a href="[LINK-WHATSAPP]" target="_blank" rel="noopener noreferrer"
+          <a href="https://chat.whatsapp.com/DPYnDuxXI8u9tJtqefIDu5" target="_blank" rel="noopener noreferrer"
              class="btn btn-primary btn-block">
             Entrar no grupo agora
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
@@ -259,6 +272,15 @@
               <path d="M13 6 L19 12 L13 18" />
             </svg>
           </a>
+          <p class="ty-step-note">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                 stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 8 V13" />
+              <path d="M12 16 V16.1" />
+            </svg>
+            Entrada mediante aprovação — nossa equipe valida cada solicitação.
+          </p>
         </div>
 
         <div class="ty-step">
