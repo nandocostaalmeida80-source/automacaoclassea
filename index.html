@@ -47,17 +47,6 @@
             <div class="hero-mark">
               <img src="uploads/logo-automacaoclassea.webp" alt="A Semana da Automação Classe A — Treinamento" />
             </div>
-            <div class="hero-urgency hero-urgency--top" role="status" aria-live="polite">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-                <path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z" />
-              </svg>
-              <span class="hero-urgency-label">Inscrições encerram em</span>
-              <span class="hero-urgency-time">
-                <span data-cd="d">32</span><span class="u">d</span>
-                <span data-cd="h">00</span><span class="u">h</span>
-                <span data-cd="m">00</span><span class="u">m</span>
-              </span>
-            </div>
           </div>
 
           <div class="event-date" role="text" aria-label="Datas do evento: 9, 10 e 11 de junho, ao vivo">
@@ -106,18 +95,6 @@
               <span>Materiais de venda prontos</span>
             </li>
           </ul>
-
-          <div class="hero-urgency hero-urgency--inline" role="status" aria-live="polite">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-              <path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z" />
-            </svg>
-            <span class="hero-urgency-label">Inscrições encerram em</span>
-            <span class="hero-urgency-time">
-              <span data-cd="d">32</span><span class="u">d</span>
-              <span data-cd="h">00</span><span class="u">h</span>
-              <span data-cd="m">00</span><span class="u">m</span>
-            </span>
-          </div>
 
           <a href="#oferta" class="btn btn-primary hero-btn">
             <span>Quero garantir minha vaga</span>
@@ -589,39 +566,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      // Conta até o início da Semana — 9 de junho de 2026, 20:00 BRT (UTC-3)
-      var target = new Date('2026-06-09T20:00:00-03:00');
-
-      var pad = function (n) { return String(n).padStart(2, "0"); };
-      var groups = {
-        d: document.querySelectorAll('[data-cd="d"]'),
-        h: document.querySelectorAll('[data-cd="h"]'),
-        m: document.querySelectorAll('[data-cd="m"]'),
-        s: document.querySelectorAll('[data-cd="s"]')
-      };
-
-      function setAll(list, value) {
-        for (var i = 0; i < list.length; i++) list[i].textContent = value;
-      }
-
-      function tick() {
-        var diff = Math.max(0, target.getTime() - Date.now());
-        var d = Math.floor(diff / 86400000);
-        var h = Math.floor((diff / 3600000) % 24);
-        var m = Math.floor((diff / 60000) % 60);
-        var s = Math.floor((diff / 1000) % 60);
-        setAll(groups.d, pad(d));
-        setAll(groups.h, pad(h));
-        setAll(groups.m, pad(m));
-        setAll(groups.s, pad(s));
-      }
-      tick();
-      setInterval(tick, 1000);
-    })();
-  </script>
 
 </body>
 
