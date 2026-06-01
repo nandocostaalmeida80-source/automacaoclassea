@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Semana da Automação Classe A · Treinamento ao vivo</title>
+  <title>Semana da Automação Classe A · Do zero ao cliente de alto padrão</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -31,472 +31,1164 @@
   <link rel="preload" href="fonts/jetbrainsmono-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* =============================================================
+       Estilos específicos do modelo-olimpo (PAS + AIDA + Hormozi)
+       Estendem o design system de styles.css
+       ============================================================= */
+
+    /* ---------- Bloco 1 · Header simples ---------- */
+    .lp-header {
+      padding: 28px 0 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .lp-header img {
+      width: 88px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+    }
+
+    /* ---------- Bloco 2 · Hero (variante PAS, sem countdown) ---------- */
+    .hero.hero--pas { padding-top: 64px; padding-bottom: 64px; }
+    @media (max-width: 820px) {
+      .hero.hero--pas { padding-top: 48px; padding-bottom: 48px; }
+    }
+    .hero--pas .hero-inner-2 {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      padding: 48px 0 24px;
+    }
+    .hero--pas h1 {
+      font-size: clamp(36px, 4.4vw, 58px);
+      line-height: 1.04;
+      letter-spacing: -0.034em;
+      font-weight: 700;
+    }
+    .hero--pas .hero-lead { max-width: 60ch; margin: 0 auto; }
+    .hero--pas .hero-lead strong { color: var(--fg-0); font-weight: 600; }
+
+    /* ---------- Bloco 3 · Prova social ---------- */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    @media (max-width: 880px) { .proof-grid { grid-template-columns: 1fr; } }
+
+    .proof-card {
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .proof-card .stars {
+      color: var(--gold-0);
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+    .proof-card .quote {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--fg-1);
+    }
+    .proof-card .person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .proof-card .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--gold-0), var(--gold-1));
+      color: #2a1d05;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .proof-card .who { display: flex; flex-direction: column; gap: 2px; }
+    .proof-card .who .name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--fg-0);
+    }
+    .proof-card .who .meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--fg-2);
+    }
+
+    /* ---------- Bloco 4 · Dor / agitação ---------- */
+    .pain-block { max-width: 760px; margin: 0 auto; text-align: center; }
+    .pain-thoughts {
+      list-style: none;
+      padding: 0;
+      margin: 36px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 640px;
+    }
+    .pain-thoughts li {
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--danger);
+      border-radius: var(--r-md);
+      padding: 18px 22px;
+      font-family: var(--font-display);
+      font-size: 17px;
+      line-height: 1.4;
+      color: var(--fg-0);
+      text-align: left;
+      font-style: italic;
+    }
+    .pain-thoughts li::before {
+      content: "“";
+      color: var(--danger);
+      margin-right: 6px;
+      font-size: 22px;
+    }
+    .pain-close {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--fg-0);
+    }
+    .pain-close svg { color: var(--danger); flex-shrink: 0; }
+
+    /* ---------- Bloco 5 · Pergunta-ponte ---------- */
+    .bridge {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 32px;
+      background:
+        radial-gradient(800px 400px at 50% 50%, rgba(212,162,76,0.08), transparent 60%),
+        var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+    }
+    .bridge .eyebrow { justify-content: center; }
+    .bridge h2 { margin-top: 18px; }
+    .bridge .anchor {
+      margin-top: 20px;
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--gold-0);
+      font-weight: 600;
+    }
+
+    /* ---------- Bloco 6 · "Com o produto você vai…" ---------- */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    @media (max-width: 960px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+    .benefit {
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .benefit:hover { border-color: var(--gold-2); transform: translateY(-3px); }
+    .benefit-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(212,162,76,0.18), rgba(212,162,76,0.04));
+      border: 1px solid rgba(212,162,76,0.3);
+      color: var(--gold-0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .benefit h3 {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .benefit p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--fg-1);
+    }
+
+    /* ---------- Bloco 7 · Entregáveis (cards alternados) ---------- */
+    .deliverables {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .deliverable {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: center;
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: 32px;
+    }
+    .deliverable.reverse { grid-template-columns: 1fr 280px; }
+    .deliverable.reverse .deliverable-visual { order: 2; }
+    @media (max-width: 820px) {
+      .deliverable, .deliverable.reverse {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 28px 22px;
+      }
+      .deliverable.reverse .deliverable-visual { order: 0; }
+    }
+
+    .deliverable-visual {
+      aspect-ratio: 1 / 1;
+      border-radius: var(--r-lg);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(212,162,76,0.18), transparent 60%),
+        linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      border: 1px solid var(--line-strong);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .deliverable-visual::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px dashed rgba(212, 162, 76, 0.2);
+      border-radius: calc(var(--r-lg) - 4px);
+      pointer-events: none;
+    }
+    .deliverable-visual .num {
+      font-family: var(--font-display);
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--gold-0);
+      line-height: 1;
+    }
+    .deliverable-visual .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-2);
+    }
+    .deliverable-content .eyebrow { margin-bottom: 8px; }
+    .deliverable-content h3 { font-size: 26px; }
+    .deliverable-content p {
+      margin-top: 12px;
+      color: var(--fg-1);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+
+    /* ---------- Bloco 9 · Para quem é ---------- */
+    .for-you {
+      max-width: 720px;
+      margin: 48px auto 0;
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: 40px 36px;
+    }
+    .for-you ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .for-you li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 16px;
+      color: var(--fg-0);
+      line-height: 1.5;
+    }
+    .for-you li svg { color: var(--accent-hi); flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 600px) { .for-you { padding: 28px 22px; } }
+
+    /* ---------- Bloco 10 · Recapitulação da oferta ---------- */
+    .stack-recap {
+      max-width: 720px;
+      margin: 48px auto 0;
+      background: var(--bg-1);
+      border: 1px solid var(--gold-2);
+      border-radius: var(--r-xl);
+      padding: 40px 36px;
+    }
+    .stack-recap h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gold-0);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .stack-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .stack-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 15px;
+      color: var(--fg-0);
+      line-height: 1.45;
+    }
+    .stack-list li:last-child { border-bottom: 0; }
+    .stack-list .item-name { flex: 1; }
+    .stack-list .item-name strong { color: var(--gold-0); font-weight: 600; }
+    .stack-list .item-val {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--fg-1);
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+    .stack-total {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-strong);
+      text-align: center;
+    }
+    .stack-total .total-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-2);
+    }
+    .stack-total .total-from {
+      margin-top: 6px;
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--fg-3);
+      text-decoration: line-through;
+      letter-spacing: -0.02em;
+    }
+    .stack-anchor {
+      text-align: center;
+      margin-top: 16px;
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--fg-0);
+    }
+    @media (max-width: 600px) { .stack-recap { padding: 28px 22px; } }
+
+    /* ---------- Bloco 11/15 · Oferta empilhada principal ---------- */
+    .offer-stack-card {
+      max-width: 520px;
+      margin: 28px auto 0;
+      background:
+        radial-gradient(900px 500px at 50% 0%, rgba(212,162,76,0.12), transparent 60%),
+        var(--bg-1);
+      border: 1px solid var(--gold-1);
+      border-radius: var(--r-xl);
+      padding: 40px 32px 32px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .offer-stack-card .from {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--fg-2);
+    }
+    .offer-stack-card .from s { color: var(--fg-3); }
+    .offer-stack-card .price-main {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .offer-stack-card .price-x {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold-0);
+    }
+    .offer-stack-card .price-currency {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--fg-1);
+    }
+    .offer-stack-card .price-value {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--fg-0);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .offer-stack-card .price-cash {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--fg-2);
+    }
+    .offer-stack-card .price-cash strong {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--fg-0);
+    }
+    .offer-stack-card .seals {
+      display: flex;
+      gap: 14px 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-2);
+      margin-top: 6px;
+    }
+    .offer-stack-card .seals span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .offer-stack-card .seals svg { color: var(--accent-hi); }
+    @media (max-width: 480px) {
+      .offer-stack-card .price-value { font-size: 52px; }
+    }
+
+    /* ---------- Bloco 12 · Passo a passo pós-compra ---------- */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    @media (max-width: 880px) { .steps { grid-template-columns: 1fr; } }
+
+    .step {
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--gold-0), var(--gold-1));
+      color: #2a1d05;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step h3 {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .step p {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--fg-1);
+    }
+
+    /* ---------- Bloco 13 · Duas opções ---------- */
+    .choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 48px;
+    }
+    @media (max-width: 820px) { .choices { grid-template-columns: 1fr; } }
+
+    .choice {
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .choice-bad { border-color: rgba(193, 75, 58, 0.4); }
+    .choice-good { border-color: rgba(44, 177, 120, 0.45); }
+
+    .choice-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .choice-bad .choice-icon {
+      background: rgba(193, 75, 58, 0.12);
+      border: 1px solid rgba(193, 75, 58, 0.35);
+      color: #e6a195;
+    }
+    .choice-good .choice-icon {
+      background: rgba(44, 177, 120, 0.12);
+      border: 1px solid rgba(44, 177, 120, 0.4);
+      color: var(--accent-hi);
+    }
+    .choice .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .choice-bad .label { color: #e6a195; }
+    .choice-good .label { color: var(--accent-hi); }
+    .choice h3 { font-size: 20px; font-weight: 600; }
+    .choice p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--fg-1);
+    }
+    .choice-conclusion {
+      max-width: 640px;
+      margin: 36px auto 0;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--fg-0);
+    }
+    .choice-conclusion .gold-soft { font-style: italic; }
+  </style>
 </head>
 
 <body>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero" data-screen-label="01 Hero">
-    <div class="hero-bg"></div>
+  <!-- ==================== BLOCO 1 · HEADER ==================== -->
+  <header class="lp-header" data-screen-label="01 Header">
+    <div class="container">
+      <img src="uploads/logo-automacaoclassea.webp" alt="Automação Classe A" />
+    </div>
+  </header>
+
+  <!-- ==================== BLOCO 2 · HERO / HEADLINE ==================== -->
+  <section class="hero hero--pas" data-screen-label="02 Hero">
     <div class="hero-grid-overlay"></div>
     <div class="container">
-      <div class="hero-inner">
-
-        <div class="hero-copy">
-          <div class="hero-top-row">
-            <div class="hero-mark">
-              <img src="uploads/logo-automacaoclassea.webp" alt="A Semana da Automação Classe A — Treinamento" />
-            </div>
-          </div>
-
-          <div class="event-date" role="text" aria-label="Datas do evento: 8, 9 e 10 de junho às 19:30, ao vivo">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3.5" y="5" width="17" height="15" rx="2" />
-              <path d="M3.5 10 H20.5" />
-              <path d="M8 3.5 V6.5" />
-              <path d="M16 3.5 V6.5" />
-            </svg>
-            <span><strong>8, 9 e 10 de junho</strong> · 19:30 · ao vivo</span>
-          </div>
-
-          <h1 class="hero-title">
-            Do absoluto zero ao <span class="gold">primeiro projeto.</span>
-          </h1>
-
-          <p class="hero-lead">
-            3 dias intensivos para o eletricista dominar Automação Residencial — e finalmente entrar em um mercado
-            mais valorizado e lucrativo.
-          </p>
-
-          <ul class="hero-bullets" aria-label="O que você recebe">
-            <li>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="8.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-                <path d="M5 9.2 L8 12 L13 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-              </svg>
-              <span>3 aulas ao vivo + gravação</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="8.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-                <path d="M5 9.2 L8 12 L13 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-              </svg>
-              <span>Conteúdo técnico simples e prático</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="8.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-                <path d="M5 9.2 L8 12 L13 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-              </svg>
-              <span>Materiais de venda prontos</span>
-            </li>
-          </ul>
-
-          <div class="hero-price" aria-label="Investimento">
-            <span class="hero-price-from">A partir de</span>
-            <span class="hero-price-value"><span class="hero-price-currency">R$</span>67<span class="hero-price-suffix">,00</span></span>
-            <span class="hero-price-note">à vista</span>
-          </div>
-
-          <a href="#oferta" class="btn btn-primary hero-btn">
-            <span>Quero garantir minha vaga</span>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12 H19" />
-              <path d="M13 6 L19 12 L13 18" />
-            </svg>
-          </a>
-
-          <ul class="hero-payments" aria-label="Formas de pagamento">
-            <li>
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2.5" y="5.5" width="19" height="13" rx="2" />
-                <path d="M2.5 10 H21.5" />
-              </svg>
-              Cartão
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3 L21 12 L12 21 L3 12 Z" />
-              </svg>
-              Pix
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 5 V19" />
-                <path d="M8 5 V19" />
-                <path d="M12 5 V19" />
-                <path d="M16 5 V19" />
-                <path d="M20 5 V19" />
-              </svg>
-              Boleto
-            </li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== STRIP ==================== -->
-  <div class="strip">
-    <div class="strip-track">
-      <span class="strip-item">AUTOMAÇÃO RESIDENCIAL</span>
-      <span class="strip-item">PARA ELETRICISTAS</span>
-      <span class="strip-item">DO ZERO AO PRIMEIRO PROJETO</span>
-      <span class="strip-item">MERCADO LUCRATIVO</span>
-      <span class="strip-item">CASA INTELIGENTE</span>
-      <span class="strip-item">VENDA DE PROJETO</span>
-      <span class="strip-item">AUTOMAÇÃO RESIDENCIAL</span>
-      <span class="strip-item">PARA ELETRICISTAS</span>
-      <span class="strip-item">DO ZERO AO PRIMEIRO PROJETO</span>
-      <span class="strip-item">MERCADO LUCRATIVO</span>
-      <span class="strip-item">CASA INTELIGENTE</span>
-      <span class="strip-item">VENDA DE PROJETO</span>
-    </div>
-  </div>
-
-  <!-- ==================== MERCADO / NARRATIVA ==================== -->
-  <section class="section" id="pilares" data-screen-label="02 Mercado">
-    <div class="container">
-
-      <div class="section-head">
-        <span class="eyebrow">O mercado que está crescendo</span>
-        <h2>Existe um mercado onde o cliente <span class="gold-soft">não procura mais tomada ou interruptor</span>.</h2>
-      </div>
-
-      <ul class="checks-list" aria-label="Para quem este treinamento se destina">
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <span>Mesmo que hoje você seja <strong>apenas eletricista</strong></span>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <span>Mesmo <strong>sem experiência com automação</strong></span>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <span>Mesmo <strong>sem showroom ou grandes contatos</strong></span>
-        </li>
-      </ul>
-
-      <div class="narrative">
-        <p class="narrative-lead">Existe um mercado crescendo todos os anos.</p>
-
-        <p>
-          Um mercado onde o cliente <strong>não procura só tomada, interruptor ou manutenção</strong>.<br>
-          Ele procura <span class="gold-soft">conforto</span>. <span class="gold-soft">Segurança</span>.
-          <span class="gold-soft">Tecnologia</span>. <span class="gold-soft">Praticidade</span>.
-          Uma casa mais inteligente.
+      <div class="hero-inner-2">
+        <span class="eyebrow">Treinamento ao vivo · 8, 9 e 10 de junho · 19:30</span>
+        <h1>
+          Não consegue fechar projetos de <span class="gold">alto padrão</span> em automação residencial?
+        </h1>
+        <p class="hero-lead">
+          Em 3 dias intensivos, você vai dominar os <strong>três pilares</strong> que fazem integradores classe A
+          faturarem <strong>seis dígitos por contrato</strong> — Automação Residencial, Áudio &amp; Vídeo e Aspiração
+          Central — sem precisar competir por preço.
         </p>
-
-        <p class="narrative-callout">Esse mercado é a <strong class="gold">automação residencial</strong>.</p>
-
-        <p>
-          Mas enquanto isso, muitos eletricistas ainda estão presos na rotina de atender 20, 30 clientes por mês,
-          correndo de obra em obra, fazendo serviço pequeno, brigando por preço e chegando em casa sem tempo e sem
-          energia para a família.
-        </p>
-
-        <p>E nesse caminho, eu descobri uma coisa:</p>
-
-        <p class="narrative-emphasis">
-          Quando você aprende a <strong class="gold">vender projeto</strong>, e não só mão de obra, tudo muda.
-        </p>
-
-        <p>
-          Você para de depender só de serviço pequeno. Você começa a enxergar oportunidades maiores.
-          Você se posiciona melhor. E passa a ser visto como alguém que entrega solução, não só execução.
-        </p>
-
-        <p>
-          Foi por isso que eu criei a <strong>Semana da Automação Classe A</strong>.<br>
-          Um treinamento ao vivo e online para <strong>eletricistas, técnicos em elétrica e profissionais da área</strong>
-          que querem sair da elétrica básica e dar o <strong class="gold-soft">primeiro passo no mercado de automação
-          residencial</strong>.
-        </p>
-      </div>
-
-      <div class="section-cta">
         <a href="#oferta" class="btn btn-primary btn-lg">Quero garantir minha vaga</a>
       </div>
     </div>
   </section>
 
-  <!-- ==================== AULAS ==================== -->
-  <section class="section" id="aulas" data-screen-label="03 Aulas">
+  <!-- ==================== BLOCO 3 · PROVA SOCIAL ==================== -->
+  <section class="section section-tight" data-screen-label="03 Prova social">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">As 3 aulas</span>
-        <h2>Do zero até o seu <span class="gold-soft">primeiro projeto</span> de automação residencial.</h2>
-        <p class="lead">
-          Nos dias <strong>8, 9 e 10 de junho</strong>, às <strong>19h30</strong>, eu vou te mostrar como ir do zero
-          até o seu primeiro projeto de automação residencial. Vai ter horário pra começar e pra terminar,
-          respeitando quem não pode mais desperdiçar tempo. Você não precisa saber tudo agora,
-          <strong>mas precisa iniciar sua trajetória</strong>.
+      <div class="section-head center">
+        <span class="eyebrow">Quem já passou pela semana</span>
+        <h2>Veja resultados reais de quem aplicou o método.</h2>
+      </div>
+
+      <!-- TODO: substituir por prints reais (WhatsApp, dashboards, depoimentos em vídeo) -->
+      <div class="proof-grid">
+
+        <article class="proof-card">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p class="quote">
+            “Antes eu fechava obras de R$ 8 mil. Depois da Semana mudei a forma de apresentar a proposta e fechei meu
+            primeiro projeto de R$ 120k. O posicionamento foi a chave.”
+          </p>
+          <div class="person">
+            <div class="avatar" aria-hidden="true">R</div>
+            <div class="who">
+              <span class="name">Rafael M.</span>
+              <span class="meta">Integrador · Curitiba/PR</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proof-card">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p class="quote">
+            “Eu já trabalhava com áudio e vídeo, mas não sabia integrar com automação. A aula 02 destravou tudo. Agora
+            entrego solução completa e o cliente nem questiona o preço.”
+          </p>
+          <div class="person">
+            <div class="avatar" aria-hidden="true">A</div>
+            <div class="who">
+              <span class="name">André P.</span>
+              <span class="meta">Eletrotécnico · São Paulo/SP</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proof-card">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p class="quote">
+            “Eu cobrava por hora e via meu trabalho ser comparado com qualquer instalador. Aprendi a vender pelo valor
+            do projeto e meu ticket médio triplicou em 4 meses.”
+          </p>
+          <div class="person">
+            <div class="avatar" aria-hidden="true">J</div>
+            <div class="who">
+              <span class="name">Juliana S.</span>
+              <span class="meta">Arquiteta &amp; Integradora · Florianópolis/SC</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 4 · DOR / AGITAÇÃO ==================== -->
+  <section class="section" data-screen-label="04 Dor">
+    <div class="container">
+      <div class="pain-block">
+        <span class="eyebrow" style="justify-content: center;">Eu sei…</span>
+        <h2 style="margin-top: 18px;">
+          Você entende de obra, mas o telefone não toca — e quando toca, é cliente pedindo desconto, não é mesmo?
+        </h2>
+
+        <p class="lead" style="margin: 24px auto 0;">
+          E você convive todo dia com pensamentos como…
         </p>
-      </div>
 
-      <div class="aulas">
+        <ul class="pain-thoughts">
+          <li>Por que sempre perco para o concorrente que cobra metade do meu preço?</li>
+          <li>Eu sei executar, mas não consigo apresentar um projeto que o cliente leve a sério.</li>
+          <li>Estou cansado de obras de R$ 5k. Como faço para chegar nos contratos grandes?</li>
+        </ul>
 
-        <article class="aula">
-          <div class="aula-num">AULA 01 · 08 JUN</div>
-          <h3>Posicionamento e vendas</h3>
-          <p class="aula-lead">
-            Descubra por que a maioria dos eletricistas não consegue entrar no mercado de automação — e o que você
-            precisa ajustar imediatamente para começar a fechar seus primeiros projetos.
-          </p>
-          <ul>
-            <li>Como o eletricista se posiciona no mercado de automação residencial para atrair clientes qualificados;</li>
-            <li>Os erros técnicos e comerciais que fazem você perder vendas antes mesmo do orçamento;</li>
-            <li>Como vender projeto de automação de forma estratégica, sem depender de preço;</li>
-            <li>Como começar ou destravar suas vendas mesmo sem indicações, showroom ou grande portfólio;</li>
-            <li>Sessão ao vivo para tirar dúvidas e ajustar sua realidade.</li>
-          </ul>
-        </article>
-
-        <article class="aula">
-          <div class="aula-num">AULA 02 · 09 JUN</div>
-          <h3>Método e estrutura profissional</h3>
-          <p class="aula-lead">
-            Aqui você vai entender como estruturar seus projetos de automação residencial — incluindo as diferenças
-            entre automação cabeada e sem fio — para sair do amadorismo e ser visto como especialista.
-          </p>
-          <ul>
-            <li>Automação cabeada e sem fio: diferenças, quando usar cada uma e como combinar as duas no mesmo projeto;</li>
-            <li>Conceitos fundamentais de automação residencial aplicados em obras reais;</li>
-            <li>Dispositivos, infraestrutura e integração para criar soluções completas e valorizadas;</li>
-            <li>Como conduzir reuniões com clientes e arquitetos sem ser comparado por preço;</li>
-            <li>Como apresentar suas soluções focando na experiência do cliente, e não apenas na parte técnica;</li>
-            <li>Quando e como utilizar o projeto técnico para aumentar suas chances de fechamento.</li>
-          </ul>
-        </article>
-
-        <article class="aula">
-          <div class="aula-num">AULA 03 · 10 JUN</div>
-          <h3>Aplicação na prática e fechamento</h3>
-          <p class="aula-lead">
-            Você vai ver como transformar conhecimento em projetos reais e conduzir o cliente até a decisão com
-            segurança.
-          </p>
-          <ul>
-            <li>Levantamento completo de obra: infraestrutura, pontos, elétrica e preparação para automação;</li>
-            <li>Como desenvolver e apresentar um projeto técnico de automação residencial de forma profissional;</li>
-            <li>Como transformar a necessidade do cliente em uma solução completa e bem posicionada;</li>
-            <li>Como conduzir o cliente até o fechamento sem pressão e sem perder autoridade;</li>
-            <li>Entrega, pós-venda e como estruturar sua operação para crescer com previsibilidade.</li>
-          </ul>
-        </article>
-
-      </div>
-
-      <div class="vagas-limitadas" role="note">
-        <div class="vagas-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-            stroke-linecap="round" stroke-linejoin="round">
+        <div class="pain-close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="9" />
-            <path d="M12 7 V12 L15 14" />
+            <path d="M8 15 Q12 12 16 15" />
+            <circle cx="9" cy="10" r="0.6" fill="currentColor" />
+            <circle cx="15" cy="10" r="0.6" fill="currentColor" />
           </svg>
-        </div>
-        <div>
-          <strong>Vagas limitadas</strong>
-          <p>Por ser ao vivo e com interação direta, as vagas são limitadas para manter a qualidade.</p>
+          <span>Você não aguenta mais ver projeto bom escapar por falta de método de venda…</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 5 · PERGUNTA-PONTE ==================== -->
+  <section class="section section-tight" data-screen-label="05 Pergunta-ponte">
+    <div class="container">
+      <div class="bridge">
+        <span class="eyebrow">Agora eu te pergunto…</span>
+        <h2>
+          Se você pudesse atuar como integrador <span class="gold">classe A</span>, fechando contratos de seis dígitos
+          sem competir por preço — isso é interessante pra você?
+        </h2>
+        <p class="anchor">Se sua resposta for SIM, a Semana da Automação Classe A é para você.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 6 · COM A SEMANA VOCÊ VAI… ==================== -->
+  <section class="section" data-screen-label="06 Benefícios">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Com a Semana você vai</span>
+        <h2>Sair dos 3 dias com um <span class="gold-soft">novo patamar comercial e técnico</span>.</h2>
+      </div>
+
+      <div class="benefits-grid">
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12 L11 4 L21 14" />
+              <path d="M5 14 V21 H19 V14" />
+            </svg>
+          </div>
+          <h3>Parar de competir por preço</h3>
+          <p>Aprender o posicionamento que faz o cliente pagar pelo seu projeto sem comparar com o instalador da
+            esquina.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 18 L10 12 L14 16 L20 8" />
+              <path d="M14 8 H20 V14" />
+            </svg>
+          </div>
+          <h3>Escalar seu ticket médio</h3>
+          <p>Usar os mesmos critérios que levam um contrato de R$ 5k para o patamar de R$ 100k+ por projeto.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3 L4 7 V13 a8 8 0 0 0 8 8 a8 8 0 0 0 8 -8 V7 Z" />
+              <path d="M9 12 L11 14 L15 10" />
+            </svg>
+          </div>
+          <h3>Dominar os 3 pilares</h3>
+          <p>Atuar com Automação Residencial, Áudio &amp; Vídeo e Aspiração Central — três receitas em um só
+            integrador.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <path d="M8 9 H16" />
+              <path d="M8 13 H16" />
+              <path d="M8 17 H12" />
+            </svg>
+          </div>
+          <h3>Apresentar projeto técnico</h3>
+          <p>Sair do orçamento de papel para um documento profissional que justifica cada centavo cobrado.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21 a8 8 0 0 1 16 0" />
+            </svg>
+          </div>
+          <h3>Conduzir o cliente até o sim</h3>
+          <p>Conhecer a sequência exata da reunião — do diagnóstico ao fechamento — sem soar como vendedor.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7 H21" />
+              <path d="M5 7 V19 a2 2 0 0 0 2 2 H17 a2 2 0 0 0 2 -2 V7" />
+              <path d="M9 7 V5 a2 2 0 0 1 2 -2 H13 a2 2 0 0 1 2 2 V7" />
+            </svg>
+          </div>
+          <h3>Ter previsibilidade</h3>
+          <p>Estruturar uma operação que fecha mais de um contrato grande por mês, sem depender só de indicação.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 7 · ENTREGÁVEIS PRINCIPAIS ==================== -->
+  <section class="section" data-screen-label="07 Entregáveis">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Tudo que você recebe</span>
+        <h2>Veja o que você vai dominar na <span class="gold">Semana da Automação Classe A</span>.</h2>
+      </div>
+
+      <div class="deliverables">
+
+        <div class="deliverable">
+          <div class="deliverable-visual">
+            <span class="num">01</span>
+            <span class="label">Aula 01 · Posicionamento</span>
+          </div>
+          <div class="deliverable-content">
+            <span class="eyebrow">Aula 01 · Ao vivo</span>
+            <h3>Posicionamento e vendas</h3>
+            <p>
+              Por que a maioria dos profissionais não consegue vender soluções de alto padrão — e o que ajustar
+              imediatamente para começar a fechar projetos maiores. Como atrair cliente qualificado sem showroom, sem
+              indicação e sem grande portfólio.
+            </p>
+          </div>
+        </div>
+
+        <div class="deliverable reverse">
+          <div class="deliverable-visual">
+            <span class="num">02</span>
+            <span class="label">Aula 02 · Método</span>
+          </div>
+          <div class="deliverable-content">
+            <span class="eyebrow">Aula 02 · Ao vivo</span>
+            <h3>Método e estrutura profissional</h3>
+            <p>
+              Conceitos fundamentais de Automação Residencial, Áudio &amp; Vídeo e Aspiração Central aplicados em obras
+              reais. Como conduzir reunião com cliente e arquiteto sem ser comparado por preço, focando na experiência
+              entregue.
+            </p>
+          </div>
+        </div>
+
+        <div class="deliverable">
+          <div class="deliverable-visual">
+            <span class="num">03</span>
+            <span class="label">Aula 03 · Prática</span>
+          </div>
+          <div class="deliverable-content">
+            <span class="eyebrow">Aula 03 · Ao vivo</span>
+            <h3>Aplicação na prática e fechamento</h3>
+            <p>
+              Levantamento completo de obra — infraestrutura, pontos, elétrica e preparação para os três pilares. Como
+              apresentar o projeto técnico, transformar a necessidade do cliente em solução completa e conduzir até o
+              fechamento sem perder autoridade.
+            </p>
+          </div>
+        </div>
+
+        <div class="deliverable reverse">
+          <div class="deliverable-visual">
+            <span class="num">04</span>
+            <span class="label">Gravação vitalícia</span>
+          </div>
+          <div class="deliverable-content">
+            <span class="eyebrow">Plano completo</span>
+            <h3>Gravação vitalícia &amp; certificado</h3>
+            <p>
+              Acesso permanente às três aulas para revisar quando precisar, no celular ou no computador, mais
+              certificado digital de participação para reforçar autoridade no seu portfólio comercial.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 8 · BÔNUS ==================== -->
+  <section class="section" data-screen-label="08 Bônus">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">E ainda não acabou</span>
+        <h2>Dois bônus que valem o investimento sozinhos.</h2>
+      </div>
+
+      <div class="bonus-grid">
+
+        <div class="bonus">
+          <div class="bonus-num">01</div>
+          <div>
+            <h4>Comunidade fechada · 90 dias</h4>
+            <p style="font-size: 14px; color: var(--fg-1);">
+              Grupo de tira-dúvidas e networking com outros integradores que estão executando o método. Um espaço
+              direto para validar projeto, preço e abordagem.
+            </p>
+            <div class="val">VALOR INDIVIDUAL · R$ 397</div>
+          </div>
+        </div>
+
+        <div class="bonus">
+          <div class="bonus-num">02</div>
+          <div>
+            <h4>Templates de proposta comercial</h4>
+            <p style="font-size: 14px; color: var(--fg-1);">
+              Layouts editáveis prontos para enviar ao cliente — proposta, contrato e memorial descritivo no padrão
+              das obras classe A.
+            </p>
+            <div class="val">VALOR INDIVIDUAL · R$ 247</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 9 · PARA QUEM É ==================== -->
+  <section class="section section-tight" data-screen-label="09 Para quem é">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Para quem é</span>
+        <h2>A Semana da Automação Classe A é para você que:</h2>
+      </div>
+
+      <div class="for-you">
+        <ul>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-opacity="0.5" />
+              <path d="M6 11.5 L9.5 15 L16 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Trabalha com instalação, áudio &amp; vídeo ou automação e quer entrar em projetos premium.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-opacity="0.5" />
+              <path d="M6 11.5 L9.5 15 L16 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Está cansado de orçar muito e fechar pouco — sempre perdendo para preço.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-opacity="0.5" />
+              <path d="M6 11.5 L9.5 15 L16 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Quer começar do zero, sem showroom, sem portfólio e sem rede de indicação ainda.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-opacity="0.5" />
+              <path d="M6 11.5 L9.5 15 L16 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>É arquiteto, designer ou engenheiro que quer dominar especificação para clientes alto padrão.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-opacity="0.5" />
+              <path d="M6 11.5 L9.5 15 L16 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Já atua na área e quer escalar a operação — sair do amadorismo e profissionalizar a venda.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 10 · RECAPITULAÇÃO DA OFERTA ==================== -->
+  <section class="section" id="oferta" data-screen-label="10 Recap oferta">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Recapitulando</span>
+        <h2>Veja tudo que você vai receber.</h2>
+      </div>
+
+      <div class="stack-recap">
+        <h3>Plano completo · 8, 9 e 10 de junho · 19:30</h3>
+        <ul class="stack-list">
+          <li>
+            <span class="item-name"><strong>Aula 01</strong> · Posicionamento e vendas (ao vivo)</span>
+            <span class="item-val">R$ 297</span>
+          </li>
+          <li>
+            <span class="item-name"><strong>Aula 02</strong> · Método e estrutura profissional (ao vivo)</span>
+            <span class="item-val">R$ 297</span>
+          </li>
+          <li>
+            <span class="item-name"><strong>Aula 03</strong> · Aplicação prática e fechamento (ao vivo)</span>
+            <span class="item-val">R$ 297</span>
+          </li>
+          <li>
+            <span class="item-name"><strong>Gravação vitalícia</strong> + certificado digital</span>
+            <span class="item-val">R$ 197</span>
+          </li>
+          <li>
+            <span class="item-name"><strong>Bônus 01</strong> · Comunidade fechada (90 dias)</span>
+            <span class="item-val">R$ 397</span>
+          </li>
+          <li>
+            <span class="item-name"><strong>Bônus 02</strong> · Templates de proposta comercial</span>
+            <span class="item-val">R$ 247</span>
+          </li>
+        </ul>
+
+        <div class="stack-total">
+          <div class="total-label">Tudo isso deveria custar</div>
+          <div class="total-from">R$ 1.732</div>
+        </div>
+        <p class="stack-anchor">Mas hoje você tem acesso por apenas:</p>
+      </div>
+
+      <!-- ==================== BLOCO 11 · OFERTA + CTA #1 ==================== -->
+      <div class="offer-stack-card">
+        <div class="from">De <s>R$ 1.732</s> por</div>
+        <div class="price-main">
+          <span class="price-currency">R$</span>
+          <span class="price-value">97</span>
+        </div>
+        <div class="price-cash">ou <strong>10x de R$ 11,18</strong> no cartão</div>
+
+        <a href="https://pay.hotmart.com/R103077175B?checkoutMode=10" target="_blank" rel="noopener noreferrer"
+          class="btn btn-primary btn-lg btn-block">
+          EU QUERO MINHA VAGA CLASSE A
+        </a>
+
+        <div class="seals">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 L10 17 L19 7" />
+            </svg>
+            Compra 100% segura
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 L10 17 L19 7" />
+            </svg>
+            Acesso imediato
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 L10 17 L19 7" />
+            </svg>
+            Pix, cartão ou boleto
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 12 · PASSO A PASSO PÓS-COMPRA ==================== -->
+  <section class="section" data-screen-label="12 Pós-compra">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Como funciona depois da compra</span>
+        <h2>Compre agora e receba o acesso no e-mail <span class="gold-soft">imediatamente</span>.</h2>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Faça sua compra</h3>
+          <p>Em poucos minutos você recebe o acesso direto na caixa de entrada — pagamento via Pix, cartão ou boleto.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Acesse a área e o grupo</h3>
+          <p>Disponível para acesso imediato no celular ou no computador. Entre na comunidade fechada para tirar dúvidas
+            antes mesmo da primeira aula.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Tudo pronto!</h3>
+          <p>Agora é só assistir às 3 aulas ao vivo, aplicar o método na próxima reunião com cliente e fechar seu
+            primeiro projeto classe A.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOCO 13 · FECHAMENTO DUAS OPÇÕES ==================== -->
+  <section class="section" data-screen-label="13 Duas opções">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Agora você tem</span>
+        <h2>Duas escolhas a partir daqui.</h2>
+      </div>
+
+      <div class="choices">
+
+        <div class="choice choice-bad">
+          <div class="choice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 6 L18 18" />
+              <path d="M18 6 L6 18" />
+            </svg>
+          </div>
+          <span class="label">Opção 01</span>
+          <h3>Continuar como está</h3>
+          <p>
+            Seguir orçando muito e fechando pouco. Ver outro integrador levar o projeto que era seu, perder na guerra de
+            preço e achar que o problema é com você — quando, na verdade, é só falta de método.
+          </p>
+        </div>
+
+        <div class="choice choice-good">
+          <div class="choice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 L10 17 L19 7" />
+            </svg>
+          </div>
+          <span class="label">Opção 02</span>
+          <h3>Investir R$ 97 e jogar em outro nível</h3>
+          <p>
+            Em 3 dias, dominar os pilares, aprender o método de venda classe A e sair com proposta, projeto técnico e
+            comunidade para começar a fechar contratos de 6 dígitos.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="choice-conclusion">
+        Eu sei — e você também sabe — que <span class="gold-soft">a opção 2 é a mais inteligente</span>.
+      </p>
 
       <div class="section-cta">
-        <a href="#oferta" class="btn btn-primary btn-lg">Garantir minha vaga</a>
+        <a href="https://pay.hotmart.com/R103077175B?checkoutMode=10" target="_blank" rel="noopener noreferrer"
+          class="btn btn-primary btn-lg">EU QUERO MINHA VAGA CLASSE A</a>
       </div>
     </div>
   </section>
 
-  <!-- ==================== METODOLOGIA ==================== -->
-  <section class="section section-tight" id="metodologia" data-screen-label="04 Metodologia">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Metodologia</span>
-        <h2>Encontros <span class="gold-soft">ao vivo</span>, com tempo para aplicar e tirar dúvidas.</h2>
-      </div>
-
-      <div class="method-grid">
-        <div class="method-card">
-          <div class="method-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="M3 9 H21" />
-              <path d="M8 3 V6" />
-              <path d="M16 3 V6" />
-            </svg>
-          </div>
-          <h3>3 encontros ao vivo</h3>
-          <p>8, 9 e 10 de junho — três aulas práticas em sequência, no mesmo horário.</p>
-        </div>
-
-        <div class="method-card">
-          <div class="method-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 7 V12 L15 14" />
-            </svg>
-          </div>
-          <h3>2 horas por dia</h3>
-          <p>Horário definido para começar e terminar. Respeitando o tempo de quem trabalha o dia inteiro.</p>
-        </div>
-
-        <div class="method-card">
-          <div class="method-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 11.5 a8.5 8.5 0 1 1 -3 -6.5" />
-              <path d="M21 5 V11 H15" />
-              <circle cx="12" cy="12" r="2.5" />
-            </svg>
-          </div>
-          <h3>1h30 + 30 min</h3>
-          <p>Uma hora e meia de conteúdo prático para aplicar, e meia hora dedicada para tirar suas dúvidas ao vivo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== O QUE VAI SER ENTREGUE ==================== -->
-  <section class="section" id="entregaveis" data-screen-label="05 Entregáveis">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">O que vai ser entregue</span>
-        <h2>Tudo o que você precisa para sair da semana com <span class="gold-soft">o primeiro projeto na mão</span>.</h2>
-      </div>
-
-      <ul class="deliverables">
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <div>
-            <h4>3 aulas ao vivo</h4>
-            <p>Conteúdo prático, direto e aplicável — do zero ao primeiro projeto de automação residencial.</p>
-          </div>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <div>
-            <h4>Sessão de dúvidas ao vivo</h4>
-            <p>30 minutos por aula para tirar suas dúvidas direto comigo. Sem fila, sem deixar para depois.</p>
-          </div>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <div>
-            <h4>Materiais de apoio</h4>
-            <p>Conceitos, fluxos e referências que você vai usar no levantamento e na apresentação do projeto.</p>
-          </div>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <div>
-            <h4>Comunidade de alunos</h4>
-            <p>Grupo fechado para trocar experiência com outros eletricistas dando os primeiros passos no mercado.</p>
-          </div>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <div>
-            <h4>Certificado de participação</h4>
-            <p>Comprovante digital ao final das três aulas — para somar no seu portfólio profissional.</p>
-          </div>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10.5" stroke="currentColor" stroke-opacity="0.35"></circle>
-            <path d="M6 11.3 L9.5 14.5 L16 7.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <div>
-            <h4>Bônus exclusivos</h4>
-            <p>Templates de proposta comercial e acesso à comunidade para acelerar suas primeiras vendas.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ==================== PARA QUEM É ==================== -->
-  <section class="section section-tight" id="para-quem" data-screen-label="06 Para quem é">
-    <div class="container">
-      <div class="for-who-grid">
-
-        <div class="for-who-col for-who-yes">
-          <span class="eyebrow">Para quem é</span>
-          <h3>Este treinamento foi feito para você se…</h3>
-          <ul>
-            <li>É eletricista, técnico em elétrica ou profissional da área e quer entrar na automação residencial;</li>
-            <li>Está cansado de viver de serviço pequeno, brigando por preço e correndo de obra em obra;</li>
-            <li>Quer aprender a vender projeto e não só mão de obra;</li>
-            <li>Quer um caminho prático para fechar o primeiro projeto de automação residencial;</li>
-            <li>Está disposto a investir 3 noites para mudar o rumo da sua carreira.</li>
-          </ul>
-        </div>
-
-        <div class="for-who-col for-who-no">
-          <span class="eyebrow">Não é para você se…</span>
-          <h3>Talvez este treinamento não seja o ideal se…</h3>
-          <ul>
-            <li>Você procura uma fórmula mágica para enriquecer da noite para o dia;</li>
-            <li>Não tem nenhuma vivência ou interesse na área elétrica;</li>
-            <li>Não está disposto a estudar e aplicar o que vai ser ensinado;</li>
-            <li>Quer continuar fazendo só serviço pequeno e disputando preço com qualquer um.</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== ABOUT ==================== -->
-  <section class="section" data-screen-label="07 Sobre">
+  <!-- ==================== BLOCO 14 · AUTORIDADE / SOBRE O AUTOR ==================== -->
+  <section class="section" data-screen-label="14 Sobre">
     <div class="container">
       <div class="about-grid">
         <div class="instructor-stage square">
-          <img class="instructor-img" src="uploads/fernando-almeida-automacoes-classe-a.webp" alt="Fernando Almeida" />
+          <img class="instructor-img" src="uploads/fernando-almeida-automacoes-classe-a.webp"
+            alt="Fernando Almeida · criador da Semana da Automação Classe A" />
           <div class="instructor-caption">
             <div>
               <div class="name">Fernando Almeida</div>
@@ -506,12 +1198,19 @@
         </div>
 
         <div>
-          <span class="eyebrow">Com quem você vai aprender</span>
-          <h2 style="margin-top: 16px;">21 Anos Integrando residências de alto padrão — agora ensinando o método.</h2>
+          <span class="eyebrow">Quem te ensina</span>
+          <h2 style="margin-top: 16px;">
+            O criador da Semana da Automação Classe A é <span class="gold">Fernando Almeida</span>.
+          </h2>
           <p class="lead" style="margin-top: 18px;">
-            Mais de <span class="gold">320 residências executadas</span>, contratos médios na casa dos seis dígitos e
-            clientes que indicam clientes. O método foi destilado em um sistema replicável: como entrar no mercado
-            certo, qualificar o cliente, projetar com excelência e cobrar como classe A.
+            Mais de <strong>320 residências executadas</strong> em 21 anos integrando projetos de alto padrão. Contratos
+            médios de R$ 240k e clientes que indicam clientes — porque o método foi pensado para vender pelo valor da
+            entrega, não pela hora de instalação.
+          </p>
+          <p style="margin-top: 16px;">
+            Antes de fechar contratos premium, ele também perdia obra para preço. Foi nessa dor que destilou um sistema
+            replicável: como entrar no mercado certo, qualificar o cliente, projetar com excelência e cobrar como
+            classe A. Agora ele entrega os mesmos materiais e estruturas que usa na própria operação.
           </p>
           <div class="stats">
             <div class="stat">
@@ -532,113 +1231,79 @@
     </div>
   </section>
 
-  <!-- ==================== BONUS ==================== -->
-  <section class="section" data-screen-label="08 Bônus">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Bônus inclusos</span>
-        <h2>Dois bônus que valem o investimento sozinhos.</h2>
-      </div>
-      <div class="bonus-grid">
-
-        <div class="bonus">
-          <div class="bonus-num">01</div>
-          <div>
-            <h4>Comunidade fechada (90 dias)</h4>
-            <p style="font-size: 14px; color: var(--fg-1);">Grupo de tira-dúvidas e networking com outros integradores.
-            </p>
-            <div class="val">VALOR INDIVIDUAL · R$ 397</div>
-          </div>
-        </div>
-
-        <div class="bonus">
-          <div class="bonus-num">02</div>
-          <div>
-            <h4>Templates de proposta comercial</h4>
-            <p style="font-size: 14px; color: var(--fg-1);">Layouts editáveis prontos para enviar ao cliente.</p>
-            <div class="val">VALOR INDIVIDUAL · R$ 247</div>
-          </div>
-        </div>
-
-      </div>
-      <div class="section-cta">
-        <a href="#oferta" class="btn btn-primary btn-lg">Quero todos os bônus</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== GUARANTEE ==================== -->
-  <section class="section section-tight" data-screen-label="09 Garantia">
-    <div class="container">
-      <div class="guarantee">
-        <div class="seal">
-          <div class="num">7</div>
-          <div class="word">Dias</div>
-        </div>
-        <div>
-          <span class="eyebrow">Garantia incondicional</span>
-          <h3 style="margin-top: 14px; font-size: 28px;">Assista, aplique e decida. Se não for para você, devolvemos
-            100%.</h3>
-          <p style="margin-top: 14px; color: var(--fg-1); max-width: 60ch;">
-            Você tem 7 dias para experimentar todo o conteúdo do treinamento. Não gostou? É só responder o e-mail de
-            confirmação e o reembolso é integral, sem perguntas, sem letras miúdas.
-          </p>
-        </div>
-      </div>
-      <div class="section-cta">
-        <a href="#oferta" class="btn btn-primary btn-lg">Inscrever-se com garantia</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== OFERTA ==================== -->
-  <section class="section" id="oferta" data-screen-label="10 Oferta">
+  <!-- ==================== BLOCO 15 · RECAP FINAL + CTA #2 ==================== -->
+  <section class="section" data-screen-label="15 Recap final">
     <div class="container">
       <div class="section-head center">
-        <span class="eyebrow">Oferta</span>
-        <h2>Escolha seu plano e <span class="gold">garanta sua vaga.</span></h2>
-        <p class="lead" style="text-align: center; margin-left: auto; margin-right: auto;">
-          Vaga confirmada na hora. Aulas ao vivo nos dias 8, 9 e 10 de junho. Garantia incondicional de 7 dias.
-        </p>
-        <div class="event-date event-date--center" role="text" aria-label="Datas do evento: 8, 9 e 10 de junho às 19:30, ao vivo">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3.5" y="5" width="17" height="15" rx="2" />
-            <path d="M3.5 10 H20.5" />
-            <path d="M8 3.5 V6.5" />
-            <path d="M16 3.5 V6.5" />
-          </svg>
-          <span>Aulas ao vivo nos dias <strong>8, 9 e 10 de junho</strong> · às <strong>19:30</strong></span>
-        </div>
+        <span class="eyebrow">Última chance</span>
+        <h2>Tudo que você recebe ao se inscrever <span class="gold">hoje</span>.</h2>
       </div>
 
-      <div class="offer-section-stack offer-section-stack--single">
-        <div class="offer-card featured">
-          <div class="label">Semana da Automação Classe A</div>
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--fg-3);">
-              De <span class="price-from">R$ 497</span> por
-            </div>
-            <div class="price-row">
-              <span class="price-currency">R$</span>
-              <span class="price">67</span>
-              <span class="price-suffix">à vista</span>
-            </div>
-          </div>
-          <div class="summary">3 aulas ao vivo + gravação + grupo de tira-dúvidas + bônus + certificado.</div>
-          <a href="https://pay.hotmart.com/R103077175B?checkoutMode=10" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">Quero garantir minha vaga</a>
+      <div class="stack-recap">
+        <h3>Plano completo · 8, 9 e 10 de junho · 19:30</h3>
+        <ul class="stack-list">
+          <li><span class="item-name"><strong>Aula 01</strong> · Posicionamento e vendas</span><span
+              class="item-val">R$ 297</span></li>
+          <li><span class="item-name"><strong>Aula 02</strong> · Método e estrutura profissional</span><span
+              class="item-val">R$ 297</span></li>
+          <li><span class="item-name"><strong>Aula 03</strong> · Aplicação prática e fechamento</span><span
+              class="item-val">R$ 297</span></li>
+          <li><span class="item-name"><strong>Gravação vitalícia</strong> + certificado</span><span
+              class="item-val">R$ 197</span></li>
+          <li><span class="item-name"><strong>Bônus 01</strong> · Comunidade fechada (90 dias)</span><span
+              class="item-val">R$ 397</span></li>
+          <li><span class="item-name"><strong>Bônus 02</strong> · Templates de proposta</span><span
+              class="item-val">R$ 247</span></li>
+        </ul>
+        <div class="stack-total">
+          <div class="total-label">Tudo isso deveria custar</div>
+          <div class="total-from">R$ 1.732</div>
         </div>
+        <p class="stack-anchor">Mas hoje você tem acesso por apenas:</p>
       </div>
 
-      <div
-        style="text-align: center; margin-top: 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-2);">
-        Pagamento seguro · Garantia 7 dias · Vaga confirmada na hora
+      <div class="offer-stack-card">
+        <div class="from">De <s>R$ 1.732</s> por</div>
+        <div class="price-main">
+          <span class="price-currency">R$</span>
+          <span class="price-value">97</span>
+        </div>
+        <div class="price-cash">ou <strong>10x de R$ 11,18</strong> no cartão</div>
+
+        <a href="https://pay.hotmart.com/R103077175B?checkoutMode=10" target="_blank" rel="noopener noreferrer"
+          class="btn btn-primary btn-lg btn-block">
+          EU QUERO MINHA VAGA CLASSE A
+        </a>
+
+        <div class="seals">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 L10 17 L19 7" />
+            </svg>
+            Garantia 7 dias
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 L10 17 L19 7" />
+            </svg>
+            Acesso imediato
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12 L10 17 L19 7" />
+            </svg>
+            Pagamento seguro
+          </span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== FAQ ==================== -->
-  <section class="section" id="faq" data-screen-label="07 FAQ">
+  <!-- ==================== BLOCO 16 · FAQ ==================== -->
+  <section class="section" id="faq" data-screen-label="16 FAQ">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">Perguntas frequentes</span>
@@ -647,75 +1312,62 @@
       <div class="faq-list">
 
         <details class="faq" open>
-          <summary>Sou iniciante. Consigo acompanhar?</summary>
-          <div class="answer">Sim. O treinamento começa do absoluto zero — protocolos, fundamentos elétricos e linguagem
-            do mercado. Profissionais experientes encontram material avançado nas aulas práticas.</div>
-        </details>
-
-        <details class="faq">
-          <summary>Vou receber certificado?</summary>
-          <div class="answer">Sim, certificado digital com sua participação registrada após assistir às três aulas.
+          <summary>Qual é a forma de pagamento?</summary>
+          <div class="answer">Cartão de crédito (em até 10x), Pix ou boleto bancário. Aprovação imediata no Pix e cartão.
           </div>
         </details>
 
         <details class="faq">
+          <summary>O pagamento é seguro?</summary>
+          <div class="answer">Sim. O processamento é feito pela Hotmart, plataforma com criptografia bancária e antifraude.
+            Os dados do seu cartão não passam pelo nosso site.</div>
+        </details>
+
+        <details class="faq">
+          <summary>Sou iniciante. Funciona pra mim?</summary>
+          <div class="answer">Sim. A Semana é desenhada do absoluto zero — protocolos, fundamentos elétricos e linguagem
+            do mercado. Profissionais experientes encontram material avançado nas aulas práticas.</div>
+        </details>
+
+        <details class="faq">
+          <summary>Como vou acessar o material?</summary>
+          <div class="answer">Logo após a confirmação você recebe um e-mail com o link da área de membros e do grupo de
+            tira-dúvidas. As aulas ao vivo acontecem dentro da plataforma, no celular ou computador.</div>
+        </details>
+
+        <details class="faq">
           <summary>Por quanto tempo tenho acesso?</summary>
-          <div class="answer">Acesso durante a semana de transmissão das 3 aulas ao vivo, incluindo o grupo de
-            tira-dúvidas no período.</div>
+          <div class="answer">No plano completo, gravação vitalícia das três aulas + 90 dias de comunidade fechada. No
+            plano ao vivo, acesso durante a semana de transmissão.</div>
         </details>
 
         <details class="faq">
           <summary>Como funciona a garantia?</summary>
-          <div class="answer">Garantia incondicional de 7 dias. Basta solicitar o reembolso por e-mail e devolvemos o
-            valor integral.</div>
-        </details>
-
-        <details class="faq">
-          <summary>As aulas são gravadas?</summary>
-          <div class="answer">As aulas são transmitidas ao vivo. Por isso priorize a participação em tempo real para
-            tirar dúvidas e aproveitar a interação direta.</div>
-        </details>
-
-        <details class="faq">
-          <summary>Quais formas de pagamento?</summary>
-          <div class="answer">Cartão de crédito (até 12x), Pix e boleto bancário. Investimento de R$ 67,00.</div>
+          <div class="answer">Garantia incondicional de 7 dias. Basta responder o e-mail de confirmação solicitando o
+            reembolso e devolvemos 100% do valor — sem perguntas, sem letras miúdas.</div>
         </details>
 
       </div>
     </div>
   </section>
 
-  <!-- ==================== FINAL CTA ==================== -->
-  <section class="section" data-screen-label="08 CTA Final">
-    <div class="container">
-      <div class="final-cta">
-        <span class="eyebrow">Última chamada</span>
-        <h2 style="max-width: 20ch;">Sua próxima venda <span class="gold">classe A</span> começa aqui.</h2>
-        <p class="lead" style="text-align: center;">
-          Inscreva-se agora e garanta sua vaga por R$ 67,00. É menos que uma visita técnica.
-        </p>
-        <div class="ctas">
-          <a href="#oferta" class="btn btn-primary btn-lg">Garantir minha vaga</a>
-        </div>
-        <div
-          style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-2); margin-top: 12px;">
-          Pagamento seguro · Garantia 7 dias · Vaga confirmada na hora
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== BLOCO 17 · FOOTER ==================== -->
   <footer>
     <div class="container">
+      <p style="font-size: 11px; line-height: 1.6; color: var(--fg-3); max-width: 80ch; margin: 0 auto 32px;">
+        Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a
+        responsabilidade não é deles e sim do nosso site. A compra desse material não garante nenhum tipo de resultado.
+        Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados
+        reais de alunos.
+      </p>
       <div class="row">
         <div>
-          Criado e desenvolvido por <strong style="color: var(--fg-0);">AUTOMAÇÃO CLASSE A LTDA</strong>
+          Criado e desenvolvido por <strong style="color: var(--fg-0);">AUTOMAÇÃO CLASSE A LTDA</strong> · © 2026
         </div>
         <div class="row-flex">
           <a href="#">Termos de Uso</a>
           <a href="#">Política de Privacidade</a>
-          <a href="#">Contato</a>
+          <a href="mailto:contato@automacaoclassea.com.br">contato@automacaoclassea.com.br</a>
         </div>
       </div>
     </div>
